@@ -2,6 +2,7 @@
 pagination:
   data: colors
   size: 1
+  permalink: "{{ pagination.items[0].file}}.html"
 ---
 
 <!DOCTYPE html>
@@ -10,6 +11,16 @@ pagination:
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:title" content="I ❤️ {{ pagination.items[0].name }}" />
+    <meta property="og:url" content="https://friendly-morse-d75e22.netlify.app{{page.url}}" />
+    <meta property="og:image" content="https://friendly-morse-d75e22.netlify.app{{ pagination.items[0].og }}" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@mge_de" />
+    <meta name="twitter:title" content="I ❤️ {{ pagination.items[0].name }}" />
+    <meta name="twitter:description" content="A Demo Project demonstrating automated open graph image generation in 11ty usind svg and the 11ty image plugin. " />
+    <meta name="twitter:image" content="https://friendly-morse-d75e22.netlify.app{{ pagination.items[0].og }}" />
+
     <title>Color {{ pagination.items[0].name }}</title>
     <style> 
         html,body{
@@ -34,20 +45,18 @@ pagination:
     </style>
 </head>
 <body>
-
 <p>
 {% if pagination.previous %}
   <a href="{{ pagination.previous }}">&larr;</a>
 {% else %}
   <a href="{{ pagination.href.last }}">&larr;</a>
 {% endif %}
-  <span class="color">{{ pagination.items[0].hex }}</span>
+  <a href="{{pagination.items[0].svg}}" download>{{ pagination.items[0].hex }}</a>
 {% if pagination.next %}
   <a href="{{ pagination.next }}">&rarr;</a>
 {% else %}
   <a href="{{ pagination.href.first }}">&rarr;</a>
 {% endif %}
 </p>
-
 </body>
 </html>

@@ -25,9 +25,8 @@ Now we add two build scripts to our `package.json` to make live easiern down the
 ```
 
 
-
-
 [11ty]: https://www.11ty.dev/
 [11tyimg]: https://www.11ty.dev/docs/plugins/image/
 [sharp]: https://sharp.pixelplumbing.com/
 [chroma-js]: https://gka.github.io/chroma.js/
+[lch]:https://lea.verou.me/2020/04/lch-colors-in-css-what-why-and-how/
