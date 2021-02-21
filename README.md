@@ -1,32 +1,41 @@
 # A small site of colors
 
-A Demo Project demonstrating automated open graph image generation in 11ty usind svg and the 11ty image plugin.
+An experiment demonstrating automated open graph image generation in [11ty][11ty] usind svg and the [11ty Image plugin][11tyimg].
 
+## Step 1: 
 
-## setup
+Generate your svg code as a string in any way you like. 
 
-```
-npm install @11ty/eleventy @11ty/eleventy-img chroma-js
-```
-
-### We just installed 3 Components: 
-
-1. [Eleventy][11yt] is a simple yet powerful static site generator
-2. [11ty Image][11tyimg] is a low level utility to perform build-time image transformations for both vector and raster images. Uses the [sharp][sharp] image processor.
-3. We`ll use [chroma-js][chroma-js] to generate a list of colors for out little experiment
-   
-Now we add two build scripts to our `package.json` to make live easiern down the way.
-
-```json
-  "scripts": {
-    "dev": "eleventy --serve",
-    "build": "eleventy"
-  },
+``` javascript
+let svg = `
+<svg width="128" height="128" viewBox="-64 -64 128 128" xmlns="http://www.w3.org/2000/svg">
+    <circle r="58" fill="#ff6600" />
+</svg>
+`
 ```
 
+## Step 2:
+
+Create a new [Buffer][buffer] from your code:
+
+``` javascript
+var buff = Buffer.from(svg);
+```
+
+## Step 3
+
+Pass the Buffer into [11ty Image plugin][11tyimg] as a source. 
+
+``` javascript
+ let stats = await Image(buffer, {
+    widths: [300]
+  });
+```
+ 
 
 [11ty]: https://www.11ty.dev/
 [11tyimg]: https://www.11ty.dev/docs/plugins/image/
 [sharp]: https://sharp.pixelplumbing.com/
 [chroma-js]: https://gka.github.io/chroma.js/
 [lch]:https://lea.verou.me/2020/04/lch-colors-in-css-what-why-and-how/
+[buffer]:ttps://nodejs.org/api/buffer.html#buffer_class_buffer
