@@ -31,7 +31,7 @@ pagination:
         html,body{
         height: 100%;
         display: grid;
-
+        place-content: center;
             background: {{ pagination.items[0].hex }};
             color: {{ pagination.items[0].text }};
             font-family: monospace;
@@ -46,7 +46,8 @@ pagination:
           border: 1px solid;
           border-radius: 0.2em;
         }
-        p{margin:auto}
+        p{margin: auto}
+        
     </style>
 </head>
 <body>
@@ -63,5 +64,6 @@ pagination:
   <a href="{{ pagination.href.first }}">&rarr;</a>
 {% endif %}
 </p>
+<p><a href="https://github.com/g12n/colors-and-palettes">github</a></p>
 </body>
 </html>
