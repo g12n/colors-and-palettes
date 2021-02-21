@@ -1,0 +1,34 @@
+{
+  "name": "colors-and-palettes",
+  "version": "1.0.0",
+  "description": "A Demo Project demonstrating automated open graph image generation in 11ty usind svg and the 11ty image plugin.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/g12n/colors-and-palettes.git"
+  },
+  "keywords": [
+    "11ty",
+    "color",
+    "opengraph",
+    "svg",
+    "seo",
+    "social",
+    "media"
+  ],
+  "author": "g12n",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/g12n/colors-and-palettes/issues"
+  },
+  "homepage": "https://github.com/g12n/colors-and-palettes#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^0.11.1",
+    "@11ty/eleventy-img": "^0.8.0",
+    "chroma-js": "^2.1.0"
+  }
+}

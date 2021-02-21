@@ -1,0 +1,53 @@
+---
+pagination:
+  data: colors
+  size: 1
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color {{ pagination.items[0].name }}</title>
+    <style> 
+        html,body{
+        height: 100%;
+        display: grid;
+
+            background: {{ pagination.items[0].hex }};
+            color: {{ pagination.items[0].text }};
+            font-family: monospace;
+            font-size: 110%;
+        }
+        a{
+          color: {{ pagination.items[0].text }};
+          text-decoration: none;
+          display: inline-block;
+          padding: 0.5em 1em;
+          margin: 1em;
+          border: 1px solid;
+          border-radius: 0.2em;
+        }
+        p{margin:auto}
+    </style>
+</head>
+<body>
+
+<p>
+{% if pagination.previous %}
+  <a href="{{ pagination.previous }}">&larr;</a>
+{% else %}
+  <a href="{{ pagination.href.last }}">&larr;</a>
+{% endif %}
+  <span class="color">{{ pagination.items[0].hex }}</span>
+{% if pagination.next %}
+  <a href="{{ pagination.next }}">&rarr;</a>
+{% else %}
+  <a href="{{ pagination.href.first }}">&rarr;</a>
+{% endif %}
+</p>
+
+</body>
+</html>
